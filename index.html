@@ -1,1 +1,36 @@
-the
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Engines</title>
+<script>
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+      document.getElementById("location").innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+
+  function showPosition(position) {
+    document.getElementById("location").innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+  }
+</script>
+</head>
+<body>
+
+<h1>Search Engines</h1>
+
+<button onclick="window.open('https://www.google.com', '_blank')">Google</button>
+<button onclick="window.open('https://www.bing.com', '_blank')">Bing</button>
+<button onclick="window.open('https://www.duckduckgo.com', '_blank')">DuckDuckGo</button>
+
+<br><br><br><br> <!-- Increased space as requested -->
+
+<button onclick="getLocation()">Get Latitude and Longitude</button>
+<p id="location"></p>
+
+</body>
+</html>
